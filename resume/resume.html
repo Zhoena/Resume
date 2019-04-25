@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>resume-Joanna</title>
+    <link rel="stylesheet" href="../lib/css/common.css"/>
+    <link rel="stylesheet" href="../lib/css/swiper.min.css"/>
+    <link rel="stylesheet" href="../lib/css/animate.min.css"/>
+    <script src="../lib/js/rem.js"></script>
+    <script src="../lib/js/swiper.min.js"></script>
+    <script src="../lib/js/swiper.animate.min.js"></script>
+
+    <style>
+
+        body{ background:#000;}
+        html, body, .swiper {  position: relative;  height: 100%; color:#fff; letter-spacing: .01rem;}
+        .swiper-container {  width: 100%;  height: 100%;  }
+        .swiper-big-wrap {
+            text-align: center;  background: url("img/bg2.jpg") no-repeat center; background-size: cover;
+        }
+        .swiper-pagination-bullet {
+            width: .12rem;  height: .12rem;  text-align: center;  line-height: .12rem;  font-size: .12rem;  color:#000;  opacity: 1;  background: rgba(255,255,255,0.2); margin: .1rem auto!important;
+        }
+        .swiper-pagination-bullet-active {
+            width: .3rem;  height: .3rem;  line-height: .3rem;
+            color:#fff;  background: rgba(255,255,255,.6);
+        }
+        .swiper-sml-wrap{ box-shadow:0 0 .1rem #00C68C; height:3.5rem;}
+        .swiper-sml-wrap span{ display:block; height:3rem;}
+        .swiper-sml-wrap:nth-of-type(1) span { background:url("img/pro02.jpg") no-repeat center top; background-size:cover;}
+        .swiper-sml-wrap:nth-of-type(2) span { background:url("img/pro01.jpg") no-repeat center top; background-size:cover;}
+        .swiper-sml-wrap a{ color:#fff; display:block; line-height:.5rem;}
+
+        .opacity {
+            height:100%; /*background:rgba(255,255,255,0.1);*/
+            display: -webkit-box;  display: -ms-flexbox;  display: -webkit-flex;  display: flex;  justify-content: space-around;  align-items: center;  flex-flow: column nowrap;
+        }
+        .info{ font-size:.2rem; width:70%;}
+        .profile{ width:1.5rem; height:1.5rem; border-radius:50%; overflow:hidden; margin-top:.8rem;
+            transition:box-shadow 1s;
+            -moz-transition:box-shadow 1s; /* Firefox 4 */
+            -webkit-transition:box-shadow 1s; /* Safari and Chrome */
+            -o-transition:box-shadow 1s; /* Opera */
+        }
+        .profile:hover{ box-shadow: 0 0 .2rem #FF0000; }
+        .profile img{ width:100%; height:100%; object-fit: cover;}
+        .wd{ transition:text-shadow 0.5s;
+            -moz-transition:text-shadow 0.5s; /* Firefox 4 */
+            -webkit-transition:text-shadow 0.5s; /* Safari and Chrome */
+            -o-transition:text-shadow 0.5s; /* Opera */}
+        .wd:hover{ text-shadow: 0 0 .2rem red;}
+        .headline{ width:86%; border-bottom: .01rem solid #5AC1C5;  line-height:.4rem; padding-bottom:.1rem; font-size:.26rem;}
+        .myName{ margin-top:.5rem;}
+        .email{ margin-bottom:.8rem;}
+
+
+
+        .title{ left:20%; right:20%; top:15%; position:absolute; font-size:.28rem; }
+        .content{ position:absolute; top:30%; bottom:0; width:92%; font-size:.2rem; }
+
+        /*关于我*/
+        .about-list{ flex-flow: row wrap; margin:0 auto;}
+        .label-wrap{ width:20%; min-width:2.4rem; padding-bottom:.1rem; }
+        .label-icon{ width:.8rem; height:.8rem; line-height:.8rem; margin:0 auto .2rem; border-radius:50%; background:rgba(255,255,255,0.2); position:relative;}
+        .label-icon:hover{ cursor: pointer; transform: scale(.93); -webkit-transform: scale(.93); background: rgba(255,255,255,0.1);}
+        .label-icon:after{ content: '';  position: absolute; top:0; left:0;  box-shadow: 0 0 0 0.02rem rgba(255,255,255,.1);  opacity: 0;  -webkit-transform: scale(.9);  transform: scale(.9);  width: .8rem;  height: .8rem;  border-radius: 50%;}
+        .label-icon:hover:after{  -webkit-animation: effect 1.3s ease-out 75ms;  animation: effect 1.3s ease-out 75ms;  }
+        .my-desc{ margin-top:.5rem; line-height:.4rem;}
+
+        /*技术栈*/
+        .tech{ width:80%; margin:0 auto;}
+        .tech li{ margin-bottom:.1rem;
+            display: -webkit-box;  display: -ms-flexbox;  display: -webkit-flex;  display: flex;  justify-content: flex-start;  align-items: center;  flex-flow: row nowrap;
+        }
+        .tech p{ width:22%; height:.3rem; line-height:.3rem; text-align: start; }
+        .tech span{ transition:all 2s; opacity:0; text-align: right; padding-right:.2rem; width:0; height:.3rem; border-radius:.1rem; background:rgba(204,204,204,0.5);}
+        .tech li .add{ opacity:1;}
+        .tech li:nth-of-type(1) .add{width:70%; background:rgba(26,9,154,0.5);}
+        .tech li:nth-of-type(2) .add{width:70%; background:rgba(255,0,255,0.5);}
+        .tech li:nth-of-type(3) .add{width:50%; background:rgba(0,255,246,0.5);}
+        .tech li:nth-of-type(4) .add{width:60%; background:rgba(0,255,0,0.5);}
+        .tech li:nth-of-type(5) .add{width:40%; background:rgba(144,0,0,0.5);}
+        .tech li:nth-of-type(6) .add{width:45%; background:rgba(255,255,0,0.5);}
+        .tech li:nth-of-type(7) .add{width:40%; background:rgba(255,120,0,0.5);}
+
+        /*经历*/
+        .work .content{ overflow-y: scroll; -webkit-overflow-scrolling: touch; top:27%; padding-bottom:.2rem;}
+        .year-main{ position:absolute; top:12%; left:4%; transition: background 1s, transform 2s, box-shadow 1s; border-top-color:#DB27DD!important; border-right-color:#DB27DD!important; border-left-color:#ccc!important; border-bottom-color:#ccc!important;}
+        .year-main:hover{ background:rgba(76,196,76,.2); transform:rotate(360deg); cursor:pointer; box-shadow: 0 0 .1rem #006CFF;}
+        .work .content::-webkit-scrollbar {  display: none;  }
+        .timeLine{ width:2rem; }
+        .experienceLine{ margin-top:.1rem; }
+
+        .year{ width:1rem; height:1rem; margin-left:1rem; border-radius: 50%;  border:.05rem solid #ccc; color:#0f0; border-bottom-color:#DB27DD; border-left-color:#DB27DD; }
+        .year em{ font-size:.28rem; display:block; margin-top:.24rem;}
+        .year span{ font-size:.16rem; display:block;}
+
+        .time-list{ width:1.5rem; border-right:.04rem solid #ccc; padding-bottom:.2rem; padding-top:.3rem;}
+        .time-list li{ height:1rem; margin-bottom:.2rem; display: -webkit-box;  display: -ms-flexbox;  display: -webkit-flex;  display: flex;  justify-content: space-between;  align-items: center;  flex-flow: row nowrap;}
+        .time-list em{ font-size:.14rem; margin-top: .1rem;}
+        .time-list i{ font-size:.24rem;}
+        .time-list b{ margin-right:-.12rem; display: -webkit-box;  display: -ms-flexbox;  display: -webkit-flex;  display: flex;  justify-content: flex-end;  align-items: center;  flex-flow: row nowrap;}
+        .time-list strong{ width:.2rem; height:.02rem; background:#ff0;}
+        .time-list span{ width:.2rem; height:.2rem; border-radius:50%; background:#333; border:.02rem solid #ff0; transition: border 0.5s;}
+        .time-list span.active{ border-width: .1rem; }
+
+        .exp-list{ padding-top:.3rem;}
+        .exp-list li{ height:1rem; text-align:left; margin-bottom:.2rem;}
+        .exp-list li:hover h5{ color:#EAFF3D; /*text-shadow: 0 0 .1rem #ff0;*/}
+        .exp-list h5{ font-size:.24rem; transition: color 1s;}
+        .exp-list p:nth-of-type(1){ font-size:.12rem; margin:.05rem 0;}
+        .exp-list p:nth-of-type(2){ font-size:.16rem;}
+
+
+
+        /*联系我*/
+        .oath{ position:relative; width:60%; margin:0 auto; padding:.2rem 0;}
+        .oath:after{ content:""; position:absolute; top:0; left:0; width:1rem; height:.6rem; border-left:.05rem solid #EC8235; border-top:.05rem solid #EC8235;}
+        .oath:before{ content:""; position:absolute; bottom:0; right:0; width:3rem; height:.6rem; border-right:.05rem solid #EC8235; border-bottom:.05rem solid #EC8235;}
+        .oath p{ line-height:.34rem;}
+        .oath b:nth-of-type(1){ position:absolute; bottom:0; left:0; width:.4rem; height:.4rem; border:.05rem solid #3569EC;}
+        .oath b:nth-of-type(1):before{ content:""; position:absolute; top:-.2rem; left:-.2rem; width:.26rem; height:.26rem; border:.05rem solid #6DEC35; transform: rotate(30deg);
+            -webkit-animation: square1 1.3s ease-out 75ms infinite alternate;  animation: square1 1.3s ease-out 75ms infinite alternate;
+        }
+        .oath b:nth-of-type(1):after{ content:""; position:absolute; bottom:-.1rem; right:-.3rem; width:.2rem; height:.2rem; border:.05rem solid blueviolet; transform: rotate(-15deg);}
+        .oath b:nth-of-type(2){ position:absolute; top:0; right:0; width:.4rem; height:.4rem; border:.05rem solid #3569EC;}
+        .oath b:nth-of-type(2):before{ content:""; position:absolute; bottom:-.2rem; right:-.2rem; width:.26rem; height:.26rem; border:.05rem solid #6DEC35; transform: rotate(30deg);}
+        .oath b:nth-of-type(2):after{ content:""; position:absolute; top:-.1rem; left:-.3rem; width:.2rem; height:.2rem; border:.05rem solid blueviolet; transform: rotate(-15deg);
+            -webkit-animation: square2 1.3s ease-out 75ms infinite alternate;  animation: square2 1.3s ease-out 75ms infinite alternate;
+        }
+
+        .connect{margin:.1rem auto;}
+        .connect li{ position:relative; width:.4rem; height:.4rem; line-height:.4rem; font-size:.12rem; cursor:pointer; margin:0 .2rem; border-radius:50%; border:.01rem solid #ccc;}
+        .connect li a{ color:#fff;}
+        .connect li i{ z-index: 10; display:none; background:#3569EC; border-radius:.05rem; line-height:.3rem; border:.01rem solid #3569EC; position:absolute; bottom:.5rem; left:-.35rem; }
+        .connect li i:after{ content:""; position:absolute; bottom:-.21rem; left:50%; margin-left:-0.08rem; border-width:.1rem; border-style: solid; border-color: #3569EC transparent transparent;}
+        .connect li:hover i{ display:block;}
+        .connect li img{ display:block; width:1rem; height:1rem;}
+        .connect .cnet-email{ padding:0 0.1rem; left:-.62rem}
+
+        @-webkit-keyframes effect{
+            0%{opacity:.3}
+            40%{opacity:.5;box-shadow:0 0 0 .02rem rgba(255,255,255,.1),0 0 .3rem .1rem #109085,0 0 0 10px rgba(255,255,255,.5)}
+            100%{box-shadow:0 0 0 .02rem rgba(255,255,255,.1),0 0 .3rem .1rem #109085,0 0 0 10px rgba(255,255,255,.5);-webkit-transform:scale(1.5);transform:scale(1.5);opacity:0}
+        }
+        @keyframes effect{
+            0%{opacity:.3}
+            40%{opacity:.5;box-shadow:0 0 0 .02rem rgba(255,255,255,.1),0 0 .3rem .1rem #109085,0 0 0 10px rgba(255,255,255,.5)}
+            100%{box-shadow:0 0 0 .02rem rgba(255,255,255,.1),0 0 .3rem .1rem #109085,0 0 0 10px rgba(255,255,255,.5);-webkit-transform:scale(1.5);transform:scale(1.5);opacity:0}
+        }
+
+        @-webkit-keyframes square1{
+            0%{ transform: scale(1) rotate(30deg);}
+            40%{ transform: scale(1.5) rotate(60deg);}
+            80%{ transform: scale(1.2) rotate(-30deg);}
+            100%{ transform: scale(1) rotate(30deg);}
+        }
+        @keyframes square1{
+            0%{ transform: scale(1) rotate(30deg);}
+            40%{ transform: scale(1.5) rotate(60deg);}
+            80%{ transform: scale(1.2) rotate(-30deg);}
+            100%{ transform: scale(1) rotate(30deg);}
+        }
+
+        @-webkit-keyframes square2{
+            0%{ transform: scale(1) rotate(-15deg);}
+            40%{ transform: scale(1.7) rotate(-90deg);}
+            80%{ transform: scale(0.8) rotate(30deg);}
+            100%{ transform: scale(1) rotate(-15deg);}
+        }
+        @keyframes square2{
+            0%{ transform: scale(1) rotate(-15deg);}
+            30%{ transform: scale(1.7) rotate(-90deg);}
+            70%{ transform: scale(0.8) rotate(30deg);}
+            100%{ transform: scale(1) rotate(-15deg);}
+        }
+
+
+        /*移动端*/
+        @media screen and (max-width:768px){
+            .info{ width:100%;}
+            .oath{ width:90%; }
+        }
+    </style>
+
+</head>
+<body>
+
+<!-- Swiper -->
+<div class="swiper">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-big-wrap">
+                <div class="opacity info">
+                    <div class="profile swiper-zoom-container"><img src="img/profile.jpg" alt=""/></div>
+                    <div class="wd headline"> 生活不止眼前的苟且，还有诗和远方的田野</div>
+                    <div class="wd myName">杨皓-Joanna</div>
+                    <div class="wd work">在校硕士</div>
+                    <div class="wd email">865129380@qq.com</div>
+                </div>
+            </div>
+            <!--关于我-->
+            <div class="swiper-slide swiper-big-wrap">
+                <div class="opacity">
+                    <div class="title">关于我</div>
+                    <div class="content">
+                        <ul class="about-list flex fcenter">
+                            <li class="label-wrap">
+                                <div class="label-icon">⊙ω⊙</div>
+                                <div>年龄/26岁</div>
+                            </li>
+                            <li class="label-wrap">
+                                <div class="label-icon">( ˃̶̤́ ꒳ ˂̶̤̀ )</div>
+                                <div>学历/本科</div>
+                            </li>
+                            <li class="label-wrap">
+                                <div class="label-icon">(๑ᵔ⌔ᵔ๑)</div>
+                                <div>坐标/北京</div>
+                            </li>
+                            <li class="label-wrap">
+                                <div class="label-icon">(*•̀ᴗ•́*)</div>
+                                <div>状态/硕士在读</div>
+                            </li>
+                        </ul>
+                        <div class="my-desc">
+                            <span>两年半全职前端开发经验</span><br />
+                            <span>高效的自学能力,具备独立分析解决问题能力</span><br />
+                            <span>代码强迫症患者</span><br />
+                            <span>现为一名硕士在校生</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--技术栈-->
+            <div class="swiper-slide swiper-big-wrap">
+                <div class="opacity">
+                    <div class="title">技术栈</div>
+                    <div class="content">
+                        <ul class="tech">
+                            <li><p>html</p><span>90%</span></li>
+                            <li><p>css</p><span>90%</span></li>
+                            <li><p>javascript</p><span>70%</span></li>
+                            <li><p>jquery</p><span>80%</span></li>
+                            <li><p>git</p><span>60%</span></li>
+                            <li><p>less</p><span>65%</span></li>
+                            <li><p>bootstrap</p><span>60%</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--我的经历-->
+            <div class="swiper-slide swiper-big-wrap">
+                <div class="opacity work">
+                    <div class="title">我的经历</div>
+                    <div class="year-main year">
+                        <em>2019</em>
+                        <span>YEAR</span>
+                    </div>
+                    <div class="content flex fstart row">
+                        <div class="timeLine">
+                            <!--<div class="year">
+                                <em>2019</em>
+                                <span>YEAR</span>
+                            </div>-->
+                            <ul class="time-list">
+                                <li>
+                                    <em>2019</em>
+                                    <i>09月</i>
+                                    <b>
+                                        <strong></strong>
+                                        <span></span>
+                                    </b>
+                                </li>
+                                <li>
+                                    <em>2018</em>
+                                    <i>01月</i>
+                                    <b>
+                                        <strong></strong>
+                                        <span></span>
+                                    </b>
+                                </li>
+                                <li>
+                                    <em>2016</em>
+                                    <i>08月</i>
+                                    <b>
+                                        <strong></strong>
+                                        <span></span>
+                                    </b>
+                                </li>
+                                <li>
+                                    <em>2016</em>
+                                    <i>07月</i>
+                                    <b>
+                                        <strong></strong>
+                                        <span></span>
+                                    </b>
+                                </li>
+                            </ul>
+                            <div class="year">
+                                <em>2016</em>
+                                <span>YEAR</span>
+                            </div>
+                        </div>
+                        <div class="experienceLine">
+                            <ul class="exp-list">
+                                <li>
+                                    <h5>北京交通大学就读</h5>
+                                    <p>&lt;硕士&gt;</p>
+                                    <p>学习计算机视觉、机器学习等方向</p>
+                                </li>
+                                <li>
+                                    <h5>北京中职北方教育科技有限公司</h5>
+                                    <p>&lt;技术部/前端工程师&gt;</p>
+                                    <p>负责快速构建高质量PC端、移动端页面。负责新站开发。负责维护及更新官网和各分校网站</p>
+                                </li>
+                                <li>
+                                    <h5>优生活互动（北京）信息科技有限公司</h5>
+                                    <p>&lt;技术部/前端工程师&gt;</p>
+                                    <p>负责PC端、移动端页面制作。PSD切图后利用HTML、JS、CSS3书写前端功能，丰富页面效果。</p>
+                                </li>
+                                <li>
+                                    <h5>毕业于山西大同大学</h5>
+                                    <p>&lt;本科&gt;</p>
+                                    <p>大学英语四级、普通话一乙</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--项目集-->
+            <div class="swiper-slide swiper-big-wrap">
+                <div class="opacity">
+                    <div class="title">项目集</div>
+                    <div class="content">
+                        <div class="swiper-container-h">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide swiper-sml-wrap">
+                                    <span></span>
+                                    <a href="javascript:;">Web前端工程师简历</a>
+                                </div>
+                                <div class="swiper-slide swiper-sml-wrap">
+                                    <span></span>
+                                    <a href="http://www.beifang.net/">北方国际汽车教育</a>
+                                </div>
+                                <div class="swiper-slide swiper-sml-wrap">
+                                    <span></span>
+                                    <a href="javascript:;">敬请期待</a>
+                                </div>
+                                <div class="swiper-slide swiper-sml-wrap">
+                                    <span></span>
+                                    <a href="javascript:;">敬请期待</a>
+                                </div>
+                                <div class="swiper-slide swiper-sml-wrap">
+                                    <span></span>
+                                    <a href="javascript:;">敬请期待</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--联系我-->
+            <div class="swiper-slide swiper-big-wrap">
+                <div class="opacity">
+                    <div class="title">联系我</div>
+                    <div class="content">
+                        <div class="oath">
+                            <b></b>
+                            <b></b>
+                            <p>随风奔跑自由是方向</p>
+                            <p>追逐雷和闪电的力量</p>
+                            <p>把浩瀚的海洋装进我胸膛</p>
+                            <p>即使再小的帆也能远航</p>
+                            <p>随风飞翔有梦做翅膀</p>
+                            <p>敢爱敢做勇敢闯一闯</p>
+                            <p>哪怕遇见再大的风险 再大的浪</p>
+                            <p>也会有默契的目光</p>
+                            <ul class="connect flex fcenter row">
+                                <li>
+                                    <a href="javascript:;">github</a>
+                                </li>
+                                <li>
+                                    wx
+                                    <i><img src="img/wx.jpg" alt=""/></i>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">weibo</a>
+                                </li>
+                                <li>qq
+                                    <i><img src="img/wx.jpg" alt=""/></i>
+                                </li>
+                                <li>email
+                                    <i class="cnet-email">865129380@qq.com</i>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+
+
+
+<script>
+    var swiperH = new Swiper('.swiper-container-h', {
+        spaceBetween: 50,
+        effect : 'coverflow',
+        slidesPerView: 3,
+        centeredSlides: true,
+        pagination: {
+            el: '.swiper-pagination-h',
+            clickable: true,
+        },
+    });
+    var swiper = new Swiper('.swiper-container', {
+        //autoplay: 5000,//可选选项，自动滑动
+        direction : 'vertical',
+        /*grabCursor : true,//手指形状*/
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            /*renderBullet: function (index, className) {
+                return '<span class="' + className + '">' + (index + 1) + '</span>';
+            },*/
+        },
+        keyboardControl : true,
+        mousewheelControl : true,
+        slidesPerView: 'auto',
+        zoom : true,
+        initialSlide :4,
+
+        on: {
+            slideChangeTransitionEnd: function(){
+                switch(this.activeIndex){
+                    case 1:
+                        break;
+                    case 2:
+                        var tech = document.querySelectorAll(".tech>li");
+                        for(var i=0; i<tech.length; i++){
+                            tech[i].getElementsByTagName("span")[0].setAttribute("class","add");
+                        }
+                        break;
+                }
+            },
+            slideChange: function(){
+                var tech = document.querySelectorAll(".tech>li");
+                for(var i=0; i<tech.length; i++){
+                    tech[i].getElementsByTagName("span")[0].removeAttribute("class","add");
+                }
+            },
+        },
+
+    });
+
+
+    /*我的经历*/
+    var exp = document.querySelectorAll(".exp-list>li");
+    var time = document.querySelectorAll(".time-list>li");
+    for( var i=0; i<exp.length; i++){
+        exp[i].index = i;
+        time[i].index = i;
+        exp[i].addEventListener('mouseover',function(){
+            var index = this.index;
+            time[index].getElementsByTagName("span")[0].setAttribute("class","active");
+        },false);
+        exp[i].addEventListener('mouseout',function(){
+            var index = this.index;
+            time[index].getElementsByTagName("span")[0].removeAttribute("class","active");
+        },false);
+    }
+
+
+
+</script>
+
+</body>
+</html>
