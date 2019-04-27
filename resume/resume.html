@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>resume-Joanna</title>
-    <link rel="stylesheet" href="../lib/css/common.css"/>
+    <link rel="stylesheet" href="../lib/css/base.css"/>
     <link rel="stylesheet" href="../lib/css/swiper.min.css"/>
     <link rel="stylesheet" href="../lib/css/animate.min.css"/>
     <script src="../lib/js/rem.js"></script>
@@ -26,6 +26,8 @@
             width: .3rem;  height: .3rem;  line-height: .3rem;
             color:#fff;  background: rgba(255,255,255,.6);
         }
+
+        .swiper-container-h-m{ display:none;}
         .swiper-sml-wrap{ box-shadow:0 0 .1rem #00C68C; height:3.5rem;}
         .swiper-sml-wrap span{ display:block; height:3rem;}
         .swiper-sml-wrap:nth-of-type(1) span { background:url("img/pro02.jpg") no-repeat center top; background-size:cover;}
@@ -61,19 +63,19 @@
 
         /*关于我*/
         .about-list{ flex-flow: row wrap; margin:0 auto;}
-        .label-wrap{ width:20%; min-width:2.4rem; padding-bottom:.1rem; }
+        .label-wrap{ width:20%; min-width:2.4rem; margin-bottom:.4rem; padding-bottom:.1rem; }
         .label-icon{ width:.8rem; height:.8rem; line-height:.8rem; margin:0 auto .2rem; border-radius:50%; background:rgba(255,255,255,0.2); position:relative;}
         .label-icon:hover{ cursor: pointer; transform: scale(.93); -webkit-transform: scale(.93); background: rgba(255,255,255,0.1);}
         .label-icon:after{ content: '';  position: absolute; top:0; left:0;  box-shadow: 0 0 0 0.02rem rgba(255,255,255,.1);  opacity: 0;  -webkit-transform: scale(.9);  transform: scale(.9);  width: .8rem;  height: .8rem;  border-radius: 50%;}
         .label-icon:hover:after{  -webkit-animation: effect 1.3s ease-out 75ms;  animation: effect 1.3s ease-out 75ms;  }
-        .my-desc{ margin-top:.5rem; line-height:.4rem;}
+        .my-desc{ margin-top:.3rem; line-height:.4rem;}
 
         /*技术栈*/
         .tech{ width:80%; margin:0 auto;}
-        .tech li{ margin-bottom:.1rem;
+        .tech li{ margin-bottom:.2rem;
             display: -webkit-box;  display: -ms-flexbox;  display: -webkit-flex;  display: flex;  justify-content: flex-start;  align-items: center;  flex-flow: row nowrap;
         }
-        .tech p{ width:22%; height:.3rem; line-height:.3rem; text-align: start; }
+        .tech p{ width:24%; height:.3rem; line-height:.3rem; text-align: start; }
         .tech span{ transition:all 2s; opacity:0; text-align: right; padding-right:.2rem; width:0; height:.3rem; border-radius:.1rem; background:rgba(204,204,204,0.5);}
         .tech li .add{ opacity:1;}
         .tech li:nth-of-type(1) .add{width:70%; background:rgba(26,9,154,0.5);}
@@ -96,8 +98,9 @@
         .year em{ font-size:.28rem; display:block; margin-top:.24rem;}
         .year span{ font-size:.16rem; display:block;}
 
+        .time-list-m{ display:none;}
         .time-list{ width:1.5rem; border-right:.04rem solid #ccc; padding-bottom:.2rem; padding-top:.3rem;}
-        .time-list li{ height:1rem; margin-bottom:.2rem; display: -webkit-box;  display: -ms-flexbox;  display: -webkit-flex;  display: flex;  justify-content: space-between;  align-items: center;  flex-flow: row nowrap;}
+        .time-list li{ height:1.1rem; margin-bottom:.2rem; display: -webkit-box;  display: -ms-flexbox;  display: -webkit-flex;  display: flex;  justify-content: space-between;  align-items: center;  flex-flow: row nowrap;}
         .time-list em{ font-size:.14rem; margin-top: .1rem;}
         .time-list i{ font-size:.24rem;}
         .time-list b{ margin-right:-.12rem; display: -webkit-box;  display: -ms-flexbox;  display: -webkit-flex;  display: flex;  justify-content: flex-end;  align-items: center;  flex-flow: row nowrap;}
@@ -106,7 +109,7 @@
         .time-list span.active{ border-width: .1rem; }
 
         .exp-list{ padding-top:.3rem;}
-        .exp-list li{ height:1rem; text-align:left; margin-bottom:.2rem;}
+        .exp-list li{ height:1.1rem; text-align:left; margin-bottom:.2rem;}
         .exp-list li:hover h5{ color:#EAFF3D; /*text-shadow: 0 0 .1rem #ff0;*/}
         .exp-list h5{ font-size:.24rem; transition: color 1s;}
         .exp-list p:nth-of-type(1){ font-size:.12rem; margin:.05rem 0;}
@@ -176,11 +179,21 @@
             100%{ transform: scale(1) rotate(-15deg);}
         }
 
-
         /*移动端*/
         @media screen and (max-width:768px){
             .info{ width:100%;}
             .oath{ width:90%; }
+            /*.time-list,.year{ display:none;}*/
+            .timeLine{ display:none;}
+            .time-list-m{ display:block;}
+            .time-list{ border:none; margin-left:.4rem; margin-right:-.4rem;}
+            .time-list span{ border-width:.1rem;}
+
+            .swiper-container-h{ display:none;}
+            .swiper-container-h-m{ display:block; width:3.5rem; margin:0 auto;}
+            .swiper-cube-shadow{ background:#00C68C!important;}
+
+
         }
     </style>
 
@@ -258,6 +271,12 @@
                         <span>YEAR</span>
                     </div>
                     <div class="content flex fstart row">
+                        <ul class="time-list time-list-m">
+                            <li><span></span></li>
+                            <li><span></span></li>
+                            <li><span></span></li>
+                            <li><span></span></li>
+                        </ul>
                         <div class="timeLine">
                             <!--<div class="year">
                                 <em>2019</em>
@@ -358,6 +377,32 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!--移动-->
+                        <div class="swiper-container-h-m">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide swiper-sml-wrap">
+                                    <span></span>
+                                    <a href="javascript:;">Web前端工程师简历</a>
+                                </div>
+                                <div class="swiper-slide swiper-sml-wrap">
+                                    <span></span>
+                                    <a href="http://www.beifang.net/">北方国际汽车教育</a>
+                                </div>
+                                <div class="swiper-slide swiper-sml-wrap">
+                                    <span></span>
+                                    <a href="javascript:;">敬请期待</a>
+                                </div>
+                                <div class="swiper-slide swiper-sml-wrap">
+                                    <span></span>
+                                    <a href="javascript:;">敬请期待</a>
+                                </div>
+                                <div class="swiper-slide swiper-sml-wrap">
+                                    <span></span>
+                                    <a href="javascript:;">敬请期待</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -379,7 +424,7 @@
                             <p>也会有默契的目光</p>
                             <ul class="connect flex fcenter row">
                                 <li>
-                                    <a href="javascript:;">github</a>
+                                    <a href="https://github.com/Zhoena">github</a>
                                 </li>
                                 <li>
                                     wx
@@ -408,15 +453,21 @@
 
 
 <script>
+    var swiperHM = new Swiper('.swiper-container-h-m', {
+        spaceBetween: 50,
+        effect : 'cube',
+        cubeEffect: {
+            slideShadows: true,
+            shadow: true,
+            shadowOffset: 50,
+            shadowScale: 0.6
+        },
+    });
     var swiperH = new Swiper('.swiper-container-h', {
         spaceBetween: 50,
         effect : 'coverflow',
         slidesPerView: 3,
         centeredSlides: true,
-        pagination: {
-            el: '.swiper-pagination-h',
-            clickable: true,
-        },
     });
     var swiper = new Swiper('.swiper-container', {
         //autoplay: 5000,//可选选项，自动滑动
@@ -433,9 +484,16 @@
         mousewheelControl : true,
         slidesPerView: 'auto',
         zoom : true,
-        initialSlide :4,
+        initialSlide :0,
 
         on: {
+            init: function(){
+                if(document.documentElement.getBoundingClientRect().width<768){
+                    swiperH.params.effect = "cube";
+                    swiperH.params.slidesPerView = 1;
+                    console.log(swiperH.params)
+                }
+            },
             slideChangeTransitionEnd: function(){
                 switch(this.activeIndex){
                     case 1:
